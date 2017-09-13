@@ -1,0 +1,185 @@
+﻿<UserControl
+    x:Class="UAC.ERP.Customer.Views.AddEditCustomer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ViewModels="clr-namespace:UAC.ERP.Customer.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:CommonControls="clr-namespace:UAC.ERP.Common.Controls.Views;assembly=UAC.ERP.Common.Controls"
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+    xmlns:local="clr-namespace:UAC.ERP.Customer.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="829.632"
+    Height="595"
+    mc:Ignorable="d">
+
+    <Border
+        Background="Transparent"
+        BorderBrush="LightGray"
+        BorderThickness="5"
+        CornerRadius="15">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="566*" />
+                <ColumnDefinition Width="227*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <local:CustomerSearch
+                Grid.Column="1"
+                Width="220"
+                Height="19"
+                Margin="10,95,-3,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" />
+
+            <StackPanel Grid.Row="0">
+                <StackPanel Margin="10" Orientation="Horizontal">
+                    <Label x:Name="lbl_Name" Content="Name:" />
+                    <dxe:TextEdit
+                        Width="207"
+                        Margin="36,0,0,0"
+                        MaxLength="50"
+                        Text="{Binding CustomerSelectedItem.CustName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label
+                        x:Name="lbl_NameCode"
+                        Margin="20,0,0,0"
+                        Content="Customer Code:" />
+                    <dxe:TextEdit
+                        Width="62"
+                        Margin="10,0,0,0"
+                        MaxLength="4"
+                        Text="{Binding CustomerSelectedItem.CustCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+
+                <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
+                    <Label x:Name="lbl_Address" Content="Address:" />
+                    <dxe:TextEdit
+                        Width="207"
+                        Margin="26,0,0,0"
+                        MaxLength="50"
+                        Text="{Binding CustomerSelectedItem.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label
+                        x:Name="lbl_Country"
+                        Margin="59,0,0,0"
+                        Content="Country:" />
+                    <dxe:ComboBoxEdit                       
+                        Width="150"
+                        Margin="10,0,0,0"
+                        MaxLength="4"
+                        DisplayMember="Country"
+                        ValueMember="Id"
+                        ItemsSource="{Binding CountryList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding CountrySelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        >
+                        <!--<dxmvvm:Interaction.Behaviors>
+                            <dxmvvm:EventToCommand EventName="Loaded" Command="{Binding LoadCountrysCommand}"/>
+                        </dxmvvm:Interaction.Behaviors>-->
+                    </dxe:ComboBoxEdit>
+                </StackPanel>
+
+                <StackPanel Margin="30,10,0,0" Orientation="Horizontal">
+                    <Label x:Name="lbl_Address2" Content="Address 2:" />
+                    <dxe:TextEdit
+                        Width="207"
+                        Margin="10,0,0,0"
+                        MaxLength="50"
+                        Text="{Binding CustomerSelectedItem.Address2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label
+                        x:Name="lbl_State"
+                        Margin="61,0,0,0"
+                        Content="State:" />
+                    <dxe:ComboBoxEdit
+                        Width="150"
+                        Margin="10,0,0,0"
+                        MaxLength="4"
+                        DisplayMember="Name"
+                        ValueMember="Id"
+                        ItemsSource="{Binding StateList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding CustomerSelectedItem.State, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+
+                <StackPanel Margin="10,10,0,0" Orientation="Horizontal">
+                    <Label x:Name="lbl_Phone" Content="Phone:" />
+                    <dxe:TextEdit
+                        Width="207"
+                        Margin="30,0,0,0"
+                        MaxLength="50" 
+                        Text="{Binding CustomerSelectedItem.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label
+                        x:Name="lbl_ZipCode"
+                        Margin="63,0,0,0"
+                        Content="ZipCode:" />
+                    <dxe:TextEdit
+                        Width="62"
+                        Margin="10,0,0,0"
+                        MaxLength="4"
+                        Text="{Binding CustomerSelectedItem.ZipCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+
+                <StackPanel Margin="10,10,0,0" Orientation="Horizontal">
+                    <Label x:Name="lbl_Fax" Content="Fax:" />
+                    <dxe:TextEdit
+                        Width="207"
+                        Margin="46,0,0,0"
+                        MaxLength="50"
+                        Text="{Binding CustomerSelectedItem.Fax, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label
+                        x:Name="lbl_Region"
+                        Margin="69,0,0,0"
+                        Content="Region:" />
+                    <dxe:TextEdit
+                        Width="62"
+                        Margin="10,0,0,0"
+                        MaxLength="4" 
+                        Text="{Binding CustomerSelectedItem.Region, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+
+                <StackPanel Margin="10,10,0,0" Orientation="Horizontal">
+                    <Label x:Name="lbl_VAT" Content="VAT Code:" />
+                    <dxe:TextEdit
+                        Width="207"
+                        Margin="10,0,0,0"
+                        MaxLength="50"
+                        Text="{Binding CustomerSelectedItem.VATCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label
+                        x:Name="lbl_CreditLimit"
+                        Margin="50,0,0,0"
+                        Content="CreditLimit:" />
+                    <dxe:TextEdit
+                        Width="150"
+                        Margin="10,0,0,0"
+                        MaxLength="4"
+                        Text="{Binding CustomerSelectedItem.CreditLimit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        />
+                </StackPanel>
+                <StackPanel Margin="10,10,0,0" Orientation="Horizontal">
+                    <Label x:Name="lbl_Company" Content="Company:" />
+                    <dxe:TextEdit
+                        Width="207"
+                        Margin="10,0,0,0"
+                        MaxLength="50" 
+                        Text="{Binding CustomerSelectedItem.MotherComopani, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Width="272" Margin="10,10,20,10">
+                        <Label x:Name="lbl_AddressList" Content="Address:" />
+                        <dxe:ListBoxEdit Width="150" Height="190" />
+                    </StackPanel>
+                    <StackPanel Width="245" Margin="10,10,0,10">
+                        <Label x:Name="lbl_ContactList" Content="Contact:" />
+                        <dxe:ListBoxEdit Width="150" Height="190" />
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+            
+            <Grid Grid.Row="1">
+                <CommonControls:AppBarControl Margin="0,116,0,0" />
+            </Grid>
+
+        </Grid>
+    </Border>
+</UserControl>

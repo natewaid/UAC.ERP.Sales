@@ -1,0 +1,113 @@
+﻿<UserControl
+    x:Class="UAC.ERP.Customer.Views.Customer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:CommonControls="clr-namespace:UAC.ERP.Common.Controls.Views;assembly=UAC.ERP.Common.Controls"
+    xmlns:ViewModels="clr-namespace:UAC.ERP.Customer.ViewModels"
+    xmlns:Views="clr-namespace:UAC.ERP.Customer.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    HorizontalContentAlignment="Stretch"
+    VerticalContentAlignment="Stretch"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+
+            <dxg:GridControl
+                MaxWidth="5000"
+                MaxHeight="2000"
+                EnableSmartColumnsGeneration="True"
+                IsEnabled="True"
+                ItemsSource="{Binding CustomerList}"
+                SelectedItem="{Binding CustomerSelectedItem}"
+                ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                <dxg:GridControl.View>
+                    <dxg:TableView
+                        AllowEditing="False"
+                        AllowPerPixelScrolling="True"
+                        Focusable="True"
+                        ShowAutoFilterRow="True"
+                        ShowGroupPanel="False"
+                        ShowSearchPanelMode="Always"
+                        ShowTotalSummary="True" />
+                </dxg:GridControl.View>
+                <dxg:GridColumn
+                    Width="150"
+                    FieldName="CustName"
+                    Header="Customer Name" />
+                <dxg:GridColumn
+                    Width="150"
+                    FieldName="CustCode"
+                    Header="Customer Code" />
+                <dxg:GridColumn
+                    Width="150"
+                    FieldName="Address"
+                    Header="Address" />
+                <dxg:GridColumn
+                    Width="150"
+                    FieldName="Address2"
+                    Header="Second Address"
+                    Visible="{Binding BigCustomerVIsibility}" />
+                <dxg:GridColumn
+                    Width="150"
+                    FieldName="City"
+                    Header="City" />
+                <dxg:GridColumn
+                    Width="150"
+                    FieldName="State"
+                    Header="State"
+                    Visible="{Binding BigCustomerVIsibility}" />
+                <dxg:GridColumn
+                    Width="150"
+                    FieldName="ZipCode"
+                    Header="Zip Code"
+                    Visible="{Binding BigCustomerVIsibility}" />
+                <dxg:GridColumn
+                    Width="150"
+                    FieldName="Country"
+                    Header="Country" />
+                <dxg:GridColumn
+                    Width="150"
+                    FieldName="Phone"
+                    Header="Phone" />
+                <dxg:GridColumn
+                    Width="150"
+                    FieldName="Fax"
+                    Header="Fax"
+                    Visible="{Binding BigCustomerVIsibility}" />
+                <dxg:GridColumn
+                    Width="150"
+                    FieldName="VATCode"
+                    Header="VAT Code"
+                    Visible="{Binding BigCustomerVIsibility}" />
+                <dxg:GridColumn
+                    Width="150"
+                    FieldName="CreditLimit"
+                    Header="Credit Limit"
+                    Visible="{Binding BigCustomerVIsibility}" />
+                <dxg:GridColumn
+                    Width="150"
+                    FieldName="Region"
+                    Header="Region"
+                    Visible="{Binding BigCustomerVIsibility}" />
+                <dxg:GridColumn
+                    Width="150"
+                    FieldName="MotherComopani"
+                    Header="Company" />
+                <!--  Header="{DynamicResource UserId_H}"  -->
+            </dxg:GridControl>
+            <!--<Views:CustomerSearch Margin="248,10,1687,172" />-->
+        </Grid>
+        <Grid>
+            <CommonControls:AppBarControl Margin="0,116,0,0" />
+            <!--<Views:CustomerSearch Margin="248,10,1687,172" />-->
+
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,26 @@
+﻿<UserControl xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  x:Class="UAC.ERP.Sales.PO.Views.PoListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:ViewModels="clr-namespace:UAC.ERP.Sales.PO.ViewModels"
+             mc:Ignorable="d"
+              xmlns:CommonControls="clr-namespace:UAC.ERP.Common.Controls.Views;assembly=UAC.ERP.Common.Controls"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <dxg:GridControl AutoGenerateColumns="AddNew" ItemsSource="{Binding PurchaseOrderList}" SelectedItem="{Binding SelectedPurchaseOrder}" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" MaxHeight="3000" MaxWidth="3000" VerticalAlignment="Top">
+                <dxg:GridControl.View>
+                    <dxg:TableView AllowPerPixelScrolling="True" AllowEditing="False" ShowTotalSummary="True"/>
+                </dxg:GridControl.View>
+            </dxg:GridControl>
+
+        </Grid>
+        <CommonControls:AppBarControl Grid.Row="1"/>
+    </Grid>
+</UserControl>

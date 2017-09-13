@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="1_language">Language</system:String>
+    <system:String x:Key="2_measure_units">Measure units</system:String>
+
+    <system:String x:Key="lblPurchaseOrderList">Purchase Order List</system:String>
+    <system:String x:Key="lblPurchaseOrder">Purchase Order</system:String>
+
+    <system:String x:Key="select_a_po">Please select a PO.</system:String>
+
+    <system:String x:Key="select_a_line_to_edit">Please select a line to edit.</system:String>
+    
+    <system:String x:Key="save_po_confirm">Are you sure you want to save changes to this PO?</system:String>
+    <system:String x:Key="save_po_confirm_caption">Save PO?</system:String>
+
+    <system:String x:Key="save_line_confirm">Are you sure you want to save changes to this line?</system:String>
+    <system:String x:Key="save_line_confirm_caption">Save Line?</system:String>
+    
+</ResourceDictionary>

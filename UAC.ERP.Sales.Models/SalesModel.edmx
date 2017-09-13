@@ -1,0 +1,1140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Production2016Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustCode" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="CustName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="30" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="2" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="13" />
+          <Property Name="Country" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="30" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="30" />
+          <Property Name="VATCode" Type="nvarchar" MaxLength="30" />
+          <Property Name="CreditLimit" Type="money" Nullable="false" />
+          <Property Name="Region" Type="int" />
+          <Property Name="MotherCompany" Type="int" />
+        </EntityType>
+        <EntityType Name="CustomerAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="15" />
+          <Property Name="Address" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Address2" Type="int" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="2" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="13" />
+          <Property Name="Country" Type="nvarchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Function" Type="nvarchar" MaxLength="30" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="30" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="30" />
+          <Property Name="Email" Type="nvarchar" MaxLength="70" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" />
+          <Property Name="State" Type="nvarchar" MaxLength="2" />
+          <Property Name="Address" Type="nvarchar" MaxLength="70" />
+          <Property Name="Country" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Statuses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sequance" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Source" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Plant" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContractId" Type="int" Nullable="false" />
+          <Property Name="ItemNo" Type="int" Nullable="false" />
+          <Property Name="ConsumerId" Type="int" Nullable="false" />
+          <Property Name="CMSNo" Type="int" Nullable="false" />
+          <Property Name="MaterialDescription" Type="int" Nullable="false" />
+          <Property Name="QPLNo" Type="int" />
+          <Property Name="UACPartNo" Type="int" Nullable="false" />
+          <Property Name="Temper" Type="int" />
+          <Property Name="Alloy" Type="int" />
+          <Property Name="MinLenght" Type="decimal" Precision="19" Scale="3" />
+          <Property Name="MaxLenght" Type="decimal" Precision="19" Scale="3" />
+          <Property Name="SectionWeight" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="MinWallThickness" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="MaxWallThickness" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="ContractHeaderId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractHeader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="ContractNo" Type="int" Nullable="false" />
+          <Property Name="ContractDate" Type="int" Nullable="false" />
+          <Property Name="ValidFrom" Type="int" Nullable="false" />
+          <Property Name="ValidTill" Type="int" Nullable="false" />
+          <Property Name="LenghtUoM" Type="int" Nullable="false" />
+          <Property Name="WeightUoM" Type="int" Nullable="false" />
+          <Property Name="Currency" Type="int" Nullable="false" />
+          <Property Name="PlantId" Type="int" Nullable="false" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="ContractHeaderId" Type="int" Nullable="false" />
+          <Property Name="CustomerId2" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractPrices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContractDetailId" Type="int" Nullable="false" />
+          <Property Name="QuantityMinLimit" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="QuantityMaxLimit" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="QuantityLimitUoM" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="UoM" Type="int" Nullable="false" />
+          <Property Name="ContractDetailId2" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="POHeads">
+          <Key>
+            <PropertyRef Name="POHeadID" />
+          </Key>
+          <Property Name="POHeadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="CustomerOrderDate" Type="date" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="3" />
+          <Property Name="PaymentTerms" Type="int" />
+          <Property Name="DeliveryTerms" Type="int" />
+          <Property Name="DeliveryAddress" Type="int" Nullable="false" />
+          <Property Name="InsideSalesRep" Type="int" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="TotalAmount" Type="money" />
+          <Property Name="Status" Type="int" />
+          <Property Name="StatusDate" Type="datetime" />
+          <Property Name="EntryDate" Type="datetime" />
+          <Property Name="RequestDate" Type="datetime" />
+          <Property Name="ContactPerson" Type="int" />
+          <Property Name="Plant" Type="int" />
+        </EntityType>
+        <EntityType Name="POLines">
+          <Key>
+            <PropertyRef Name="POLineId" />
+          </Key>
+          <Property Name="POLineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="POHeadPOHeadID" Type="int" Nullable="false" />
+          <Property Name="LineNo" Type="int" />
+          <Property Name="Item" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerPart" Type="nvarchar" MaxLength="30" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Alloy" Type="nvarchar" MaxLength="20" />
+          <Property Name="Temper" Type="nvarchar" MaxLength="6" />
+          <Property Name="Length" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="LenghtUOM" Type="nvarchar" MaxLength="3" />
+          <Property Name="Quantity" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="QuantityUOM" Type="nvarchar" MaxLength="3" />
+          <Property Name="UnitPrice" Type="int" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Discount" Type="int" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+          <Property Name="Stensile" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="Weight" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="CMS" Type="nvarchar" MaxLength="20" />
+          <Property Name="FAIRequired" Type="bit" />
+          <Property Name="PackingInfo" Type="nvarchar" MaxLength="255" />
+          <Property Name="Oil" Type="nchar" MaxLength="1" />
+          <Property Name="UpperShipTolerance" Type="int" />
+          <Property Name="LowerShipTolerance" Type="int" />
+          <Property Name="ToleranceUOM" Type="nvarchar" MaxLength="3" />
+          <Property Name="Status" Type="int" />
+          <Property Name="DeliveryAddress" Type="int" />
+        </EntityType>
+        <EntityType Name="Terms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="TermType" Type="int" Nullable="false" />
+          <Property Name="Plant" Type="int" Nullable="false" />
+          <Property Name="Days" Type="int" />
+        </EntityType>
+        <EntityType Name="TermTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="Contract-&gt;ContractAnnex">
+          <End Role="ContractHeader" Type="Self.ContractHeader" Multiplicity="1" />
+          <End Role="ContractHeader1" Type="Self.ContractHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractHeader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContractHeader1">
+              <PropertyRef Name="ContractHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Customer-&gt;CustomerContacts">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerContact" Type="Self.CustomerContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerContact">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Customer-&gt;ShippingAddreses">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerAddress">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Customer1">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Customer1" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer1">
+              <PropertyRef Name="MotherCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POHeads_CustomerContact">
+          <End Role="CustomerContact" Type="Self.CustomerContact" Multiplicity="0..1" />
+          <End Role="POHeads" Type="Self.POHeads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerContact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POHeads">
+              <PropertyRef Name="ContactPerson" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POHeads_PaymentTerms">
+          <End Role="Terms" Type="Self.Terms" Multiplicity="0..1" />
+          <End Role="POHeads" Type="Self.POHeads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POHeads">
+              <PropertyRef Name="PaymentTerms" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POHeads_Terms">
+          <End Role="Terms" Type="Self.Terms" Multiplicity="0..1" />
+          <End Role="POHeads" Type="Self.POHeads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POHeads">
+              <PropertyRef Name="DeliveryTerms" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POLines_CustomerAddress">
+          <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="0..1" />
+          <End Role="POLines" Type="Self.POLines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerAddress">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POLines">
+              <PropertyRef Name="DeliveryAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POLines_POHeads">
+          <End Role="POHeads" Type="Self.POHeads" Multiplicity="1" />
+          <End Role="POLines" Type="Self.POLines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POHeads">
+              <PropertyRef Name="POHeadID" />
+            </Principal>
+            <Dependent Role="POLines">
+              <PropertyRef Name="POHeadPOHeadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POLines_Statuses">
+          <End Role="Statuses" Type="Self.Statuses" Multiplicity="0..1" />
+          <End Role="POLines" Type="Self.POLines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POLines">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terms_TermTypes">
+          <End Role="TermTypes" Type="Self.TermTypes" Multiplicity="1" />
+          <End Role="Terms" Type="Self.Terms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TermTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Terms">
+              <PropertyRef Name="TermType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKContractDe236868">
+          <End Role="ContractHeader" Type="Self.ContractHeader" Multiplicity="1" />
+          <End Role="ContractDetail" Type="Self.ContractDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractHeader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContractDetail">
+              <PropertyRef Name="ContractHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKContractPr849355">
+          <End Role="ContractDetail" Type="Self.ContractDetail" Multiplicity="1" />
+          <End Role="ContractPrices" Type="Self.ContractPrices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractDetail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContractPrices">
+              <PropertyRef Name="ContractDetailId2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKPOHeads255550">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="POHeads" Type="Self.POHeads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POHeads">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKPOHeads576073">
+          <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="1" />
+          <End Role="POHeads" Type="Self.POHeads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerAddress">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POHeads">
+              <PropertyRef Name="DeliveryAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Production2016ModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="Common" store:Type="Tables" />
+          <EntitySet Name="CustomerAddress" EntityType="Self.CustomerAddress" Schema="Common" store:Type="Tables" />
+          <EntitySet Name="CustomerContact" EntityType="Self.CustomerContact" Schema="Common" store:Type="Tables" />
+          <EntitySet Name="Statuses" EntityType="Self.Statuses" Schema="Common" store:Type="Tables" />
+          <EntitySet Name="ContractDetail" EntityType="Self.ContractDetail" Schema="Sales" store:Type="Tables" />
+          <EntitySet Name="ContractHeader" EntityType="Self.ContractHeader" Schema="Sales" store:Type="Tables" />
+          <EntitySet Name="ContractPrices" EntityType="Self.ContractPrices" Schema="Sales" store:Type="Tables" />
+          <EntitySet Name="POHeads" EntityType="Self.POHeads" Schema="Sales" store:Type="Tables" />
+          <EntitySet Name="POLines" EntityType="Self.POLines" Schema="Sales" store:Type="Tables" />
+          <EntitySet Name="Terms" EntityType="Self.Terms" Schema="Sales" store:Type="Tables" />
+          <EntitySet Name="TermTypes" EntityType="Self.TermTypes" Schema="Sales" store:Type="Tables" />
+          <AssociationSet Name="Contract-&gt;ContractAnnex" Association="Self.Contract-&gt;ContractAnnex">
+            <End Role="ContractHeader" EntitySet="ContractHeader" />
+            <End Role="ContractHeader1" EntitySet="ContractHeader" />
+          </AssociationSet>
+          <AssociationSet Name="Customer-&gt;CustomerContacts" Association="Self.Customer-&gt;CustomerContacts">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerContact" EntitySet="CustomerContact" />
+          </AssociationSet>
+          <AssociationSet Name="Customer-&gt;ShippingAddreses" Association="Self.Customer-&gt;ShippingAddreses">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Customer1" Association="Self.FK_Customer_Customer1">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Customer1" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POHeads_CustomerContact" Association="Self.FK_POHeads_CustomerContact">
+            <End Role="CustomerContact" EntitySet="CustomerContact" />
+            <End Role="POHeads" EntitySet="POHeads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POHeads_PaymentTerms" Association="Self.FK_POHeads_PaymentTerms">
+            <End Role="Terms" EntitySet="Terms" />
+            <End Role="POHeads" EntitySet="POHeads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POHeads_Terms" Association="Self.FK_POHeads_Terms">
+            <End Role="Terms" EntitySet="Terms" />
+            <End Role="POHeads" EntitySet="POHeads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POLines_CustomerAddress" Association="Self.FK_POLines_CustomerAddress">
+            <End Role="CustomerAddress" EntitySet="CustomerAddress" />
+            <End Role="POLines" EntitySet="POLines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POLines_POHeads" Association="Self.FK_POLines_POHeads">
+            <End Role="POHeads" EntitySet="POHeads" />
+            <End Role="POLines" EntitySet="POLines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POLines_Statuses" Association="Self.FK_POLines_Statuses">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="POLines" EntitySet="POLines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terms_TermTypes" Association="Self.FK_Terms_TermTypes">
+            <End Role="TermTypes" EntitySet="TermTypes" />
+            <End Role="Terms" EntitySet="Terms" />
+          </AssociationSet>
+          <AssociationSet Name="FKContractDe236868" Association="Self.FKContractDe236868">
+            <End Role="ContractHeader" EntitySet="ContractHeader" />
+            <End Role="ContractDetail" EntitySet="ContractDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FKContractPr849355" Association="Self.FKContractPr849355">
+            <End Role="ContractDetail" EntitySet="ContractDetail" />
+            <End Role="ContractPrices" EntitySet="ContractPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FKPOHeads255550" Association="Self.FKPOHeads255550">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="POHeads" EntitySet="POHeads" />
+          </AssociationSet>
+          <AssociationSet Name="FKPOHeads576073" Association="Self.FKPOHeads576073">
+            <End Role="CustomerAddress" EntitySet="CustomerAddress" />
+            <End Role="POHeads" EntitySet="POHeads" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Production2016Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Production2016Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Production2016Model.Customer" />
+          <EntitySet Name="CustomerAddresses" EntityType="Production2016Model.CustomerAddress" />
+          <EntitySet Name="CustomerContacts" EntityType="Production2016Model.CustomerContact" />
+          <EntitySet Name="Statuses" EntityType="Production2016Model.Status" />
+          <EntitySet Name="ContractDetails" EntityType="Production2016Model.ContractDetail" />
+          <EntitySet Name="ContractHeaders" EntityType="Production2016Model.ContractHeader" />
+          <EntitySet Name="ContractPrices" EntityType="Production2016Model.ContractPrice" />
+          <EntitySet Name="POHeads" EntityType="Production2016Model.POHead" />
+          <EntitySet Name="POLines" EntityType="Production2016Model.POLine" />
+          <EntitySet Name="Terms" EntityType="Production2016Model.Term" />
+          <EntitySet Name="TermTypes" EntityType="Production2016Model.TermType" />
+          <AssociationSet Name="Customer__CustomerContacts" Association="Production2016Model.Customer__CustomerContacts">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerContact" EntitySet="CustomerContacts" />
+          </AssociationSet>
+          <AssociationSet Name="Customer__ShippingAddreses" Association="Production2016Model.Customer__ShippingAddreses">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Customer1" Association="Production2016Model.FK_Customer_Customer1">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Customer1" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FKPOHeads255550" Association="Production2016Model.FKPOHeads255550">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="POHead" EntitySet="POHeads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POLines_CustomerAddress" Association="Production2016Model.FK_POLines_CustomerAddress">
+            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+            <End Role="POLine" EntitySet="POLines" />
+          </AssociationSet>
+          <AssociationSet Name="FKPOHeads576073" Association="Production2016Model.FKPOHeads576073">
+            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+            <End Role="POHead" EntitySet="POHeads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POHeads_CustomerContact" Association="Production2016Model.FK_POHeads_CustomerContact">
+            <End Role="CustomerContact" EntitySet="CustomerContacts" />
+            <End Role="POHead" EntitySet="POHeads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POLines_Statuses" Association="Production2016Model.FK_POLines_Statuses">
+            <End Role="Status" EntitySet="Statuses" />
+            <End Role="POLine" EntitySet="POLines" />
+          </AssociationSet>
+          <AssociationSet Name="FKContractDe236868" Association="Production2016Model.FKContractDe236868">
+            <End Role="ContractHeader" EntitySet="ContractHeaders" />
+            <End Role="ContractDetail" EntitySet="ContractDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FKContractPr849355" Association="Production2016Model.FKContractPr849355">
+            <End Role="ContractDetail" EntitySet="ContractDetails" />
+            <End Role="ContractPrice" EntitySet="ContractPrices" />
+          </AssociationSet>
+          <AssociationSet Name="Contract__ContractAnnex" Association="Production2016Model.Contract__ContractAnnex">
+            <End Role="ContractHeader" EntitySet="ContractHeaders" />
+            <End Role="ContractHeader1" EntitySet="ContractHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POHeads_PaymentTerms" Association="Production2016Model.FK_POHeads_PaymentTerms">
+            <End Role="Term" EntitySet="Terms" />
+            <End Role="POHead" EntitySet="POHeads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POHeads_Terms" Association="Production2016Model.FK_POHeads_Terms">
+            <End Role="Term" EntitySet="Terms" />
+            <End Role="POHead" EntitySet="POHeads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POLines_POHeads" Association="Production2016Model.FK_POLines_POHeads">
+            <End Role="POHead" EntitySet="POHeads" />
+            <End Role="POLine" EntitySet="POLines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terms_TermTypes" Association="Production2016Model.FK_Terms_TermTypes">
+            <End Role="TermType" EntitySet="TermTypes" />
+            <End Role="Term" EntitySet="Terms" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustCode" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="CustName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="VATCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CreditLimit" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Region" Type="Int32" />
+          <Property Name="MotherCompany" Type="Int32" />
+          <NavigationProperty Name="CustomerContacts" Relationship="Production2016Model.Customer__CustomerContacts" FromRole="Customer" ToRole="CustomerContact" />
+          <NavigationProperty Name="CustomerAddresses" Relationship="Production2016Model.Customer__ShippingAddreses" FromRole="Customer" ToRole="CustomerAddress" />
+          <NavigationProperty Name="Customer1" Relationship="Production2016Model.FK_Customer_Customer1" FromRole="Customer" ToRole="Customer1" />
+          <NavigationProperty Name="Customer2" Relationship="Production2016Model.FK_Customer_Customer1" FromRole="Customer1" ToRole="Customer" />
+          <NavigationProperty Name="POHeads" Relationship="Production2016Model.FKPOHeads255550" FromRole="Customer" ToRole="POHead" />
+        </EntityType>
+        <EntityType Name="CustomerAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="Int32" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="Production2016Model.Customer__ShippingAddreses" FromRole="CustomerAddress" ToRole="Customer" />
+          <NavigationProperty Name="POLines" Relationship="Production2016Model.FK_POLines_CustomerAddress" FromRole="CustomerAddress" ToRole="POLine" />
+          <NavigationProperty Name="POHeads" Relationship="Production2016Model.FKPOHeads576073" FromRole="CustomerAddress" ToRole="POHead" />
+        </EntityType>
+        <EntityType Name="CustomerContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="ContactPerson" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Function" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="Production2016Model.Customer__CustomerContacts" FromRole="CustomerContact" ToRole="Customer" />
+          <NavigationProperty Name="POHeads" Relationship="Production2016Model.FK_POHeads_CustomerContact" FromRole="CustomerContact" ToRole="POHead" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sequance" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Source" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Plant" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="POLines" Relationship="Production2016Model.FK_POLines_Statuses" FromRole="Status" ToRole="POLine" />
+        </EntityType>
+        <EntityType Name="ContractDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContractId" Type="Int32" Nullable="false" />
+          <Property Name="ItemNo" Type="Int32" Nullable="false" />
+          <Property Name="ConsumerId" Type="Int32" Nullable="false" />
+          <Property Name="CMSNo" Type="Int32" Nullable="false" />
+          <Property Name="MaterialDescription" Type="Int32" Nullable="false" />
+          <Property Name="QPLNo" Type="Int32" />
+          <Property Name="UACPartNo" Type="Int32" Nullable="false" />
+          <Property Name="Temper" Type="Int32" />
+          <Property Name="Alloy" Type="Int32" />
+          <Property Name="MinLenght" Type="Decimal" Precision="19" Scale="3" />
+          <Property Name="MaxLenght" Type="Decimal" Precision="19" Scale="3" />
+          <Property Name="SectionWeight" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="MinWallThickness" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="MaxWallThickness" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="ContractHeaderId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ContractHeader" Relationship="Production2016Model.FKContractDe236868" FromRole="ContractDetail" ToRole="ContractHeader" />
+          <NavigationProperty Name="ContractPrices" Relationship="Production2016Model.FKContractPr849355" FromRole="ContractDetail" ToRole="ContractPrice" />
+        </EntityType>
+        <EntityType Name="ContractHeader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="ContractNo" Type="Int32" Nullable="false" />
+          <Property Name="ContractDate" Type="Int32" Nullable="false" />
+          <Property Name="ValidFrom" Type="Int32" Nullable="false" />
+          <Property Name="ValidTill" Type="Int32" Nullable="false" />
+          <Property Name="LenghtUoM" Type="Int32" Nullable="false" />
+          <Property Name="WeightUoM" Type="Int32" Nullable="false" />
+          <Property Name="Currency" Type="Int32" Nullable="false" />
+          <Property Name="PlantId" Type="Int32" Nullable="false" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="ContractHeaderId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId2" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ContractDetails" Relationship="Production2016Model.FKContractDe236868" FromRole="ContractHeader" ToRole="ContractDetail" />
+          <NavigationProperty Name="ContractHeader1" Relationship="Production2016Model.Contract__ContractAnnex" FromRole="ContractHeader" ToRole="ContractHeader1" />
+          <NavigationProperty Name="ContractHeader2" Relationship="Production2016Model.Contract__ContractAnnex" FromRole="ContractHeader1" ToRole="ContractHeader" />
+        </EntityType>
+        <EntityType Name="ContractPrice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContractDetailId" Type="Int32" Nullable="false" />
+          <Property Name="QuantityMinLimit" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="QuantityMaxLimit" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="QuantityLimitUoM" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="UoM" Type="Int32" Nullable="false" />
+          <Property Name="ContractDetailId2" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ContractDetail" Relationship="Production2016Model.FKContractPr849355" FromRole="ContractPrice" ToRole="ContractDetail" />
+        </EntityType>
+        <EntityType Name="POHead">
+          <Key>
+            <PropertyRef Name="POHeadID" />
+          </Key>
+          <Property Name="POHeadID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerOrderDate" Type="DateTime" Precision="0" />
+          <Property Name="Currency" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentTerms" Type="Int32" />
+          <Property Name="DeliveryTerms" Type="Int32" />
+          <Property Name="DeliveryAddress" Type="Int32" Nullable="false" />
+          <Property Name="InsideSalesRep" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="StatusDate" Type="DateTime" Precision="3" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <Property Name="RequestDate" Type="DateTime" Precision="3" />
+          <Property Name="ContactPerson" Type="Int32" />
+          <Property Name="Plant" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="Production2016Model.FKPOHeads255550" FromRole="POHead" ToRole="Customer" />
+          <NavigationProperty Name="CustomerAddress" Relationship="Production2016Model.FKPOHeads576073" FromRole="POHead" ToRole="CustomerAddress" />
+          <NavigationProperty Name="CustomerContact" Relationship="Production2016Model.FK_POHeads_CustomerContact" FromRole="POHead" ToRole="CustomerContact" />
+          <NavigationProperty Name="Term" Relationship="Production2016Model.FK_POHeads_PaymentTerms" FromRole="POHead" ToRole="Term" />
+          <NavigationProperty Name="Term1" Relationship="Production2016Model.FK_POHeads_Terms" FromRole="POHead" ToRole="Term" />
+          <NavigationProperty Name="POLines" Relationship="Production2016Model.FK_POLines_POHeads" FromRole="POHead" ToRole="POLine" />
+        </EntityType>
+        <EntityType Name="POLine">
+          <Key>
+            <PropertyRef Name="POLineId" />
+          </Key>
+          <Property Name="POLineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="POHeadPOHeadID" Type="Int32" Nullable="false" />
+          <Property Name="LineNo" Type="Int32" />
+          <Property Name="Item" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerPart" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Alloy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Temper" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="Length" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="LenghtUOM" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="QuantityUOM" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="UnitPrice" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Discount" Type="Int32" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Stensile" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="Weight" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="CMS" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FAIRequired" Type="Boolean" />
+          <Property Name="PackingInfo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Oil" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="UpperShipTolerance" Type="Int32" />
+          <Property Name="LowerShipTolerance" Type="Int32" />
+          <Property Name="ToleranceUOM" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="DeliveryAddress" Type="Int32" />
+          <NavigationProperty Name="CustomerAddress" Relationship="Production2016Model.FK_POLines_CustomerAddress" FromRole="POLine" ToRole="CustomerAddress" />
+          <NavigationProperty Name="Status1" Relationship="Production2016Model.FK_POLines_Statuses" FromRole="POLine" ToRole="Status" />
+          <NavigationProperty Name="POHead" Relationship="Production2016Model.FK_POLines_POHeads" FromRole="POLine" ToRole="POHead" />
+        </EntityType>
+        <EntityType Name="Term">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TermType" Type="Int32" Nullable="false" />
+          <Property Name="Plant" Type="Int32" Nullable="false" />
+          <Property Name="Days" Type="Int32" />
+          <NavigationProperty Name="POHeads" Relationship="Production2016Model.FK_POHeads_PaymentTerms" FromRole="Term" ToRole="POHead" />
+          <NavigationProperty Name="POHeads1" Relationship="Production2016Model.FK_POHeads_Terms" FromRole="Term" ToRole="POHead" />
+          <NavigationProperty Name="TermType1" Relationship="Production2016Model.FK_Terms_TermTypes" FromRole="Term" ToRole="TermType" />
+        </EntityType>
+        <EntityType Name="TermType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Terms" Relationship="Production2016Model.FK_Terms_TermTypes" FromRole="TermType" ToRole="Term" />
+        </EntityType>
+        <Association Name="Customer__CustomerContacts">
+          <End Type="Production2016Model.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="Production2016Model.CustomerContact" Role="CustomerContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerContact">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Customer__ShippingAddreses">
+          <End Type="Production2016Model.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="Production2016Model.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerAddress">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Customer1">
+          <End Type="Production2016Model.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="Production2016Model.Customer" Role="Customer1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer1">
+              <PropertyRef Name="MotherCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKPOHeads255550">
+          <End Type="Production2016Model.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="Production2016Model.POHead" Role="POHead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POHead">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POLines_CustomerAddress">
+          <End Type="Production2016Model.CustomerAddress" Role="CustomerAddress" Multiplicity="0..1" />
+          <End Type="Production2016Model.POLine" Role="POLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerAddress">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POLine">
+              <PropertyRef Name="DeliveryAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKPOHeads576073">
+          <End Type="Production2016Model.CustomerAddress" Role="CustomerAddress" Multiplicity="1" />
+          <End Type="Production2016Model.POHead" Role="POHead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerAddress">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POHead">
+              <PropertyRef Name="DeliveryAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POHeads_CustomerContact">
+          <End Type="Production2016Model.CustomerContact" Role="CustomerContact" Multiplicity="0..1" />
+          <End Type="Production2016Model.POHead" Role="POHead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerContact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POHead">
+              <PropertyRef Name="ContactPerson" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POLines_Statuses">
+          <End Type="Production2016Model.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="Production2016Model.POLine" Role="POLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POLine">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKContractDe236868">
+          <End Type="Production2016Model.ContractHeader" Role="ContractHeader" Multiplicity="1" />
+          <End Type="Production2016Model.ContractDetail" Role="ContractDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractHeader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContractDetail">
+              <PropertyRef Name="ContractHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKContractPr849355">
+          <End Type="Production2016Model.ContractDetail" Role="ContractDetail" Multiplicity="1" />
+          <End Type="Production2016Model.ContractPrice" Role="ContractPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractDetail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContractPrice">
+              <PropertyRef Name="ContractDetailId2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Contract__ContractAnnex">
+          <End Type="Production2016Model.ContractHeader" Role="ContractHeader" Multiplicity="1" />
+          <End Type="Production2016Model.ContractHeader" Role="ContractHeader1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractHeader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContractHeader1">
+              <PropertyRef Name="ContractHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POHeads_PaymentTerms">
+          <End Type="Production2016Model.Term" Role="Term" Multiplicity="0..1" />
+          <End Type="Production2016Model.POHead" Role="POHead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Term">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POHead">
+              <PropertyRef Name="PaymentTerms" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POHeads_Terms">
+          <End Type="Production2016Model.Term" Role="Term" Multiplicity="0..1" />
+          <End Type="Production2016Model.POHead" Role="POHead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Term">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POHead">
+              <PropertyRef Name="DeliveryTerms" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POLines_POHeads">
+          <End Type="Production2016Model.POHead" Role="POHead" Multiplicity="1" />
+          <End Type="Production2016Model.POLine" Role="POLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POHead">
+              <PropertyRef Name="POHeadID" />
+            </Principal>
+            <Dependent Role="POLine">
+              <PropertyRef Name="POHeadPOHeadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terms_TermTypes">
+          <End Type="Production2016Model.TermType" Role="TermType" Multiplicity="1" />
+          <End Type="Production2016Model.Term" Role="Term" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TermType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Term">
+              <PropertyRef Name="TermType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Production2016ModelStoreContainer" CdmEntityContainer="Production2016Entities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Production2016Model.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="MotherCompany" ColumnName="MotherCompany" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+                <ScalarProperty Name="VATCode" ColumnName="VATCode" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CustName" ColumnName="CustName" />
+                <ScalarProperty Name="CustCode" ColumnName="CustCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerAddresses">
+            <EntityTypeMapping TypeName="Production2016Model.CustomerAddress">
+              <MappingFragment StoreEntitySet="CustomerAddress">
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerContacts">
+            <EntityTypeMapping TypeName="Production2016Model.CustomerContact">
+              <MappingFragment StoreEntitySet="CustomerContact">
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Function" ColumnName="Function" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statuses">
+            <EntityTypeMapping TypeName="Production2016Model.Status">
+              <MappingFragment StoreEntitySet="Statuses">
+                <ScalarProperty Name="Plant" ColumnName="Plant" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Sequance" ColumnName="Sequance" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractDetails">
+            <EntityTypeMapping TypeName="Production2016Model.ContractDetail">
+              <MappingFragment StoreEntitySet="ContractDetail">
+                <ScalarProperty Name="ContractHeaderId" ColumnName="ContractHeaderId" />
+                <ScalarProperty Name="MaxWallThickness" ColumnName="MaxWallThickness" />
+                <ScalarProperty Name="MinWallThickness" ColumnName="MinWallThickness" />
+                <ScalarProperty Name="SectionWeight" ColumnName="SectionWeight" />
+                <ScalarProperty Name="MaxLenght" ColumnName="MaxLenght" />
+                <ScalarProperty Name="MinLenght" ColumnName="MinLenght" />
+                <ScalarProperty Name="Alloy" ColumnName="Alloy" />
+                <ScalarProperty Name="Temper" ColumnName="Temper" />
+                <ScalarProperty Name="UACPartNo" ColumnName="UACPartNo" />
+                <ScalarProperty Name="QPLNo" ColumnName="QPLNo" />
+                <ScalarProperty Name="MaterialDescription" ColumnName="MaterialDescription" />
+                <ScalarProperty Name="CMSNo" ColumnName="CMSNo" />
+                <ScalarProperty Name="ConsumerId" ColumnName="ConsumerId" />
+                <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+                <ScalarProperty Name="ContractId" ColumnName="ContractId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractHeaders">
+            <EntityTypeMapping TypeName="Production2016Model.ContractHeader">
+              <MappingFragment StoreEntitySet="ContractHeader">
+                <ScalarProperty Name="CustomerId2" ColumnName="CustomerId2" />
+                <ScalarProperty Name="ContractHeaderId" ColumnName="ContractHeaderId" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="PlantId" ColumnName="PlantId" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="WeightUoM" ColumnName="WeightUoM" />
+                <ScalarProperty Name="LenghtUoM" ColumnName="LenghtUoM" />
+                <ScalarProperty Name="ValidTill" ColumnName="ValidTill" />
+                <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+                <ScalarProperty Name="ContractDate" ColumnName="ContractDate" />
+                <ScalarProperty Name="ContractNo" ColumnName="ContractNo" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractPrices">
+            <EntityTypeMapping TypeName="Production2016Model.ContractPrice">
+              <MappingFragment StoreEntitySet="ContractPrices">
+                <ScalarProperty Name="ContractDetailId2" ColumnName="ContractDetailId2" />
+                <ScalarProperty Name="UoM" ColumnName="UoM" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="QuantityLimitUoM" ColumnName="QuantityLimitUoM" />
+                <ScalarProperty Name="QuantityMaxLimit" ColumnName="QuantityMaxLimit" />
+                <ScalarProperty Name="QuantityMinLimit" ColumnName="QuantityMinLimit" />
+                <ScalarProperty Name="ContractDetailId" ColumnName="ContractDetailId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POHeads">
+            <EntityTypeMapping TypeName="Production2016Model.POHead">
+              <MappingFragment StoreEntitySet="POHeads">
+                <ScalarProperty Name="Plant" ColumnName="Plant" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="StatusDate" ColumnName="StatusDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="InsideSalesRep" ColumnName="InsideSalesRep" />
+                <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+                <ScalarProperty Name="DeliveryTerms" ColumnName="DeliveryTerms" />
+                <ScalarProperty Name="PaymentTerms" ColumnName="PaymentTerms" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="CustomerOrderDate" ColumnName="CustomerOrderDate" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="POHeadID" ColumnName="POHeadID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POLines">
+            <EntityTypeMapping TypeName="Production2016Model.POLine">
+              <MappingFragment StoreEntitySet="POLines">
+                <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ToleranceUOM" ColumnName="ToleranceUOM" />
+                <ScalarProperty Name="LowerShipTolerance" ColumnName="LowerShipTolerance" />
+                <ScalarProperty Name="UpperShipTolerance" ColumnName="UpperShipTolerance" />
+                <ScalarProperty Name="Oil" ColumnName="Oil" />
+                <ScalarProperty Name="PackingInfo" ColumnName="PackingInfo" />
+                <ScalarProperty Name="FAIRequired" ColumnName="FAIRequired" />
+                <ScalarProperty Name="CMS" ColumnName="CMS" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Stensile" ColumnName="Stensile" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="QuantityUOM" ColumnName="QuantityUOM" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="LenghtUOM" ColumnName="LenghtUOM" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Temper" ColumnName="Temper" />
+                <ScalarProperty Name="Alloy" ColumnName="Alloy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CustomerPart" ColumnName="CustomerPart" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="LineNo" ColumnName="LineNo" />
+                <ScalarProperty Name="POHeadPOHeadID" ColumnName="POHeadPOHeadID" />
+                <ScalarProperty Name="POLineId" ColumnName="POLineId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Terms">
+            <EntityTypeMapping TypeName="Production2016Model.Term">
+              <MappingFragment StoreEntitySet="Terms">
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="Plant" ColumnName="Plant" />
+                <ScalarProperty Name="TermType" ColumnName="TermType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TermTypes">
+            <EntityTypeMapping TypeName="Production2016Model.TermType">
+              <MappingFragment StoreEntitySet="TermTypes">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

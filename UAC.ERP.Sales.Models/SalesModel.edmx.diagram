@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="511d3539f3e04073a2efdd2f876f00f0" Name="Diagram1">
+        <EntityTypeShape EntityType="Production2016Model.Customer" Width="1.5" PointX="2.75" PointY="16.75" />
+        <EntityTypeShape EntityType="Production2016Model.CustomerAddress" Width="1.5" PointX="4.25" PointY="9.75" />
+        <EntityTypeShape EntityType="Production2016Model.CustomerContact" Width="1.5" PointX="2.375" PointY="7.125" />
+        <EntityTypeShape EntityType="Production2016Model.Status" Width="1.5" PointX="10.875" PointY="9.25" />
+        <EntityTypeShape EntityType="Production2016Model.ContractDetail" Width="1.5" PointX="11.75" PointY="0.5" />
+        <EntityTypeShape EntityType="Production2016Model.ContractHeader" Width="1.5" PointX="9.5" PointY="0.75" />
+        <EntityTypeShape EntityType="Production2016Model.ContractPrice" Width="1.5" PointX="14" PointY="1.375" />
+        <EntityTypeShape EntityType="Production2016Model.POHead" Width="1.5" PointX="5" PointY="1.5" />
+        <EntityTypeShape EntityType="Production2016Model.POLine" Width="1.5" PointX="7.25" PointY="0.625" />
+        <EntityTypeShape EntityType="Production2016Model.Term" Width="1.5" PointX="2.75" PointY="2.75" />
+        <EntityTypeShape EntityType="Production2016Model.TermType" Width="1.5" PointX="0.5" PointY="3.375" />
+        <AssociationConnector Association="Production2016Model.Customer__CustomerContacts" />
+        <AssociationConnector Association="Production2016Model.Customer__ShippingAddreses" />
+        <AssociationConnector Association="Production2016Model.FK_Customer_Customer1" />
+        <AssociationConnector Association="Production2016Model.FKPOHeads255550" />
+        <AssociationConnector Association="Production2016Model.FK_POLines_CustomerAddress" />
+        <AssociationConnector Association="Production2016Model.FKPOHeads576073" />
+        <AssociationConnector Association="Production2016Model.FK_POHeads_CustomerContact" />
+        <AssociationConnector Association="Production2016Model.FK_POLines_Statuses" />
+        <AssociationConnector Association="Production2016Model.FKContractDe236868" />
+        <AssociationConnector Association="Production2016Model.FKContractPr849355" />
+        <AssociationConnector Association="Production2016Model.Contract__ContractAnnex" />
+        <AssociationConnector Association="Production2016Model.FK_POHeads_PaymentTerms" />
+        <AssociationConnector Association="Production2016Model.FK_POHeads_Terms" />
+        <AssociationConnector Association="Production2016Model.FK_POLines_POHeads" />
+        <AssociationConnector Association="Production2016Model.FK_Terms_TermTypes" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

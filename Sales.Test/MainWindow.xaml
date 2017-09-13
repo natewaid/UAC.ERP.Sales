@@ -1,0 +1,11 @@
+﻿<dx:DXWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:Views="clr-namespace:UAC.ERP.Customer.Views;assembly=UAC.ERP.Customer" x:Class="Sales.Test.MainWindow"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Views:CustomerSearch HorizontalAlignment="Left" Margin="189,191,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</dx:DXWindow>

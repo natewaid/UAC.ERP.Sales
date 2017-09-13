@@ -1,0 +1,33 @@
+﻿<UserControl xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" 
+             x:Class="UAC.ERP.Common.Controls.Views.AppBarControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" 
+             xmlns:ViewModels="clr-namespace:UAC.ERP.Common.Controls.ViewModels"
+             mc:Ignorable="d"
+               xmlns:local="clr-namespace:UAC.ERP.Common.Controls.Views"
+             xmlns:messages="clr-namespace:UAC.ERP.Common.Controls"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <messages:NullImageConverter x:Key="nullImageConverter" />
+        <DataTemplate x:Key="butonTemplate">
+            <dxwui:AppBarButton IsEllipseEnabled="False" HorizontalAlignment="{Binding Alignment}" Label="{Binding Label}"  Content="{Binding Content}"
+                                Command="{Binding ExecutingCommand}" Glyph="{Binding Picture, Converter={StaticResource nullImageConverter}}" IsEnabled="{Binding Enabled}" 
+                                Visibility="{Binding Visible,Converter={dxmvvm:BooleanToVisibilityConverter}}"     >
+
+            </dxwui:AppBarButton>
+        </DataTemplate>
+        <DataTemplate x:Key="separatorTemplate">
+            <dxwui:AppBarSeparator VerticalAlignment="Stretch"/>
+        </DataTemplate>
+        <local:ButonTemplateSelector x:Key="selectTemplate"  butonTemplate="{StaticResource butonTemplate}" separatorTemplate="{StaticResource separatorTemplate}" />
+    </UserControl.Resources>
+    <Grid Grid.Row="1">
+        <dxwui:AppBar   x:Name="appBar" IsOpen="True" HideMode="AlwaysVisible" IsExitButtonEnabled="False"   Margin="0,5"  IsBackButtonEnabled="False"  
+                    ItemTemplateSelector="{DynamicResource selectTemplate}"  ItemsSource="{Binding AppBarButtons}" >
+
+        </dxwui:AppBar>
+    </Grid>
+</UserControl>
